@@ -15,11 +15,13 @@ import { useSelector, useDispatch } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 
-import {
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+// import {
+//   Ionicons,
+//   MaterialIcons,
+//   MaterialCommunityIcons,
+// } from "@expo/vector-icons";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const FavoriteListScreen = (props) => {
   const navigation = useNavigation();

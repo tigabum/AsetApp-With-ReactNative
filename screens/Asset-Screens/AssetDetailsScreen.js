@@ -8,16 +8,17 @@ import {
   Dimensions,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+// import {
+//   Ionicons,
+//   MaterialIcons,
+//   MaterialCommunityIcons,
+// } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { TouchableOpacity } from "react-native-gesture-handler";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 import {
   LineChart,
 } from "react-native-chart-kit";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AssetDetailsScreen = (props) => {
   const favourite = useSelector((state) => state.asset.favourite);
@@ -114,7 +115,6 @@ const AssetDetailsScreen = (props) => {
             {props.route.params.name}
             {"\n"}
           </Text>
-
           <Text>${props.route.params.price.toFixed(3)}</Text>
         </View>
         <View>

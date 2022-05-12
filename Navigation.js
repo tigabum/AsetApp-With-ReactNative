@@ -14,6 +14,7 @@ import {
 import { useColorScheme } from "react-native-appearance";
 import AssetsNavigator from "./screens/Asset-Screens/AssetsNavigator";
 import FavoriteListScreen from "./screens/Asset-Screens/FavoriteListScreen";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const Navigation = () => {
@@ -25,10 +26,21 @@ const Navigation = () => {
     <NavigationContainer theme={scheme === "dark" ? DarkTheme : DefaultTheme}>
       <Tab.Navigator initialRouteName="Home"
       screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size, padding}) => {
+            let iconName;
+            if(route.name === 'Asset Lists'){
+              iconName = focused ? 'home' : 'home-outline';
+            }else if(route.name === 'Favourite') {
+              iconName = focused 
+              ? 'star'
+              : 'star-outline'
+            }
+              return <Ionicons name={iconName} size={size} color="black" style={{paddingBottom: padding}}/>
+          },
       })}
       >
         <Tab.Screen
-          name="Home"
+          name="Asset Lists"
           component={AssetsNavigator}
           options={{
               tabBarLabel: 'Home',

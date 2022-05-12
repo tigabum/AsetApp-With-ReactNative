@@ -15,12 +15,14 @@ import { useColorScheme } from "react-native-appearance";
 import { useSelector, useDispatch } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import {
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+// import {
+//   Ionicons,
+//   MaterialIcons,
+//   MaterialCommunityIcons,
+// } from "@expo/vector-icons";
 import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 function wait(timeout) {
   return new Promise((resolve) => {
@@ -169,7 +171,7 @@ const AssetList = (props) => {
               <Ionicons
                 onPress={() => handleFavourite(item)}
                 name={
-                  favourite && favourite[item.slug]?.isFavorite
+                  favourite && favourite[item.slug] && favourite[item.slug].isFavorite
                     ? "star"
                     : "star-outline"
                 }

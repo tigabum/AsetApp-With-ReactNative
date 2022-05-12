@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-  Ionicons,
-  MaterialIcons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+// import {
+//   Ionicons,
+//   MaterialIcons,
+//   MaterialCommunityIcons,
+// } from "@expo/vector-icons";
 import React, { useState, useEffect } from "react";
 import { useColorScheme } from "react-native-appearance";
 import { useDispatch } from "react-redux";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import AssetListsScreen from "./AssetListsScreen";
 import FavoriteListScreen from "./FavoriteListScreen";
@@ -23,12 +24,12 @@ const AssetsNavigator = () => {
     <Stack.Navigator
       initialRouteName="Assets Lists"
       screenOptions={{
-        gestureEnabled: false,
-      }}
-      screenOptions={{
         headerTitleStyle: {
-          fontSize: 18,
+          fontSize: 40,
+          
         },
+        gestureEnabled: true,
+        headerShown:false,
       }}
     >
       <Stack.Screen
@@ -37,24 +38,27 @@ const AssetsNavigator = () => {
         // initialParams={{ displaySearchBar: false }}
         options={({ route, navigation }) => ({
           headerTitleAlign: "center",
+        //   headerShown:false
         })}
       />
       <Stack.Screen
         name="Favorite Assets"
         component={FavoriteListScreen}
-        options={({ route, navigation }) => ({
-          title: "Favour",
-          headerTitleAlign: "center",
-        })}
+        // options={({ route, navigation }) => ({
+        //   title: "Favour",
+        //   headerTitleAlign: "center",
+        // })}
       />
       <Stack.Screen
         name="AssetDetails"
         component={AssetDetailsScreen}
         options={({ route, navigation }) => ({
-          title: "Asset Details",
+            headerShown:false,
+            // headerBackTitle:"back",
+            // headerBackTitleVisible​: true,
           headerLeft: () => (
             <Ionicons
-              name="list-circle-outline"
+              name="ios-list-outline"
               size={32}
               color={scheme === "dark" ? "white" : "black"}
               style={{ marginLeft: 10 }}
